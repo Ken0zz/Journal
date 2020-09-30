@@ -7,12 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="727" Width="800">
     <Grid>
+        
         <Grid.RowDefinitions>
+            
             <RowDefinition Height="50"/>
             <RowDefinition Height="100"/>
             <RowDefinition/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
+        
 
         <StackPanel Grid.Row="0" Background="#FF594F4F" >
             <TextBlock Text="Электронный журнал" FontSize="40" FontFamily="Segoe UI Semibold" HorizontalAlignment="Center"/>
@@ -36,6 +39,7 @@
         <StackPanel Grid.Row="3" Background="#FF594F4F" />
         <StackPanel Grid.Row="2" Background="#FFB8B8B8" />
         <Frame x:Name="fr" Grid.Row="2" Background="#FFB8B8B8"/>
+        <TextBlock x:Name="hello" Grid.Row="3"/>
 
     </Grid>
 </Window>

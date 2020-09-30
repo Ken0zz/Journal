@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище JournalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище JournalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -48,12 +48,12 @@
             <PropertyRef Name="Код_преподавателя" />
           </Key>
           <Property Name="Код_преподавателя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Фамилия" Type="char" MaxLength="20" />
-          <Property Name="Имя" Type="char" MaxLength="20" />
-          <Property Name="Отчество" Type="char" MaxLength="20" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="50" />
+          <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
           <Property Name="Дисциплина" Type="int" />
-          <Property Name="Пароль" Type="char" MaxLength="30" />
-          <Property Name="Логин" Type="char" MaxLength="30" />
+          <Property Name="Пароль" Type="nvarchar" MaxLength="50" />
+          <Property Name="Логин" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Список">
           <Key>
@@ -236,8 +236,7 @@
             <End Role="Табель" EntitySet="Табель" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JournalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -293,12 +292,12 @@
             <PropertyRef Name="Код_преподавателя" />
           </Key>
           <Property Name="Код_преподавателя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Фамилия" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Имя" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Отчество" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Дисциплина" Type="Int32" />
-          <Property Name="Пароль" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
-          <Property Name="Логин" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Пароль" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Логин" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Группа" Relationship="Self.FK_Группа_Преподаватель" FromRole="Преподаватель" ToRole="Группа" />
           <NavigationProperty Name="Занятие" Relationship="Self.FK_Занятие_Преподаватель" FromRole="Преподаватель" ToRole="Занятие" />
           <NavigationProperty Name="Список" Relationship="Self.FK_Список_Преподаватель" FromRole="Преподаватель" ToRole="Список" />

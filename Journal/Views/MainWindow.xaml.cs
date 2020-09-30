@@ -21,9 +21,12 @@ namespace Journal
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+
         public MainWindow()
         {
             InitializeComponent();
+            hello.Text = "Добро пожаловать," + Authorization.nametchr;
         }
 
         private void disciplines_Click(object sender, RoutedEventArgs e)

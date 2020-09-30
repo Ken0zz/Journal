@@ -70,13 +70,23 @@
     <Compile Include="Views\Discipline.xaml.cs">
       <DependentUpon>Discipline.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Group.xaml.cs">
+      <DependentUpon>Group.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewDiscipline.xaml.cs">
       <DependentUpon>NewDiscipline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewGroup.xaml.cs">
+      <DependentUpon>NewGroup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Authorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Group.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewDiscipline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

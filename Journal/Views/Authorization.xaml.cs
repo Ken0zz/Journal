@@ -15,13 +15,15 @@ using System.Windows.Shapes;
 
 namespace Journal.Views
 {
+    
     /// <summary>
     /// Логика взаимодействия для Authorization.xaml
     /// </summary>
     public partial class Authorization : Window
     {
-        JournalEntities db = new JournalEntities();
         public static string nametchr;
+        JournalEntities db = new JournalEntities();
+        
         public Authorization()
         {
             InitializeComponent();
@@ -29,15 +31,20 @@ namespace Journal.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            bool bl = false;
             for (int i = 0; i < db.Преподаватель.Count(); i++)
             {
                 if ((db.Преподаватель.ToList()[i].Логин == login.Text) && (db.Преподаватель.ToList()[i].Пароль == pass.Text))
                 {
+                    bl = true;
                     nametchr = db.Преподаватель.ToList()[i].Имя + db.Преподаватель.ToList()[i].Отчество;
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                 }
+                
             }
+            if(!bl) MessageBox.Show("Неверный логин или пароль");
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
