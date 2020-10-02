@@ -41,7 +41,6 @@
           <Property Name="Группа" Type="int" />
           <Property Name="Преподаватель" Type="int" />
           <Property Name="Дисциплина" Type="int" />
-          <Property Name="Табель" Type="int" />
         </EntityType>
         <EntityType Name="Преподаватель">
           <Key>
@@ -81,6 +80,7 @@
           <Property Name="Студент" Type="int" />
           <Property Name="Оценка" Type="int" />
           <Property Name="Присуцтвие" Type="char" MaxLength="3" />
+          <Property Name="Занятие" Type="int" />
         </EntityType>
         <Association Name="FK_Группа_Преподаватель">
           <End Role="Преподаватель" Type="Self.Преподаватель" Multiplicity="0..1" />
@@ -130,18 +130,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Занятие_Табель">
-          <End Role="Табель" Type="Self.Табель" Multiplicity="0..1" />
-          <End Role="Занятие" Type="Self.Занятие" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Табель">
-              <PropertyRef Name="Код_табеля" />
-            </Principal>
-            <Dependent Role="Занятие">
-              <PropertyRef Name="Табель" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Список_Дисциплина">
           <End Role="Дисциплина" Type="Self.Дисциплина" Multiplicity="0..1" />
           <End Role="Список" Type="Self.Список" Multiplicity="*" />
@@ -175,6 +163,18 @@
             </Principal>
             <Dependent Role="Студент">
               <PropertyRef Name="Группа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Табель_Занятие">
+          <End Role="Занятие" Type="Self.Занятие" Multiplicity="0..1" />
+          <End Role="Табель" Type="Self.Табель" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Занятие">
+              <PropertyRef Name="Код_Занятия" />
+            </Principal>
+            <Dependent Role="Табель">
+              <PropertyRef Name="Занятие" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -215,10 +215,6 @@
             <End Role="Преподаватель" EntitySet="Преподаватель" />
             <End Role="Занятие" EntitySet="Занятие" />
           </AssociationSet>
-          <AssociationSet Name="FK_Занятие_Табель" Association="Self.FK_Занятие_Табель">
-            <End Role="Табель" EntitySet="Табель" />
-            <End Role="Занятие" EntitySet="Занятие" />
-          </AssociationSet>
           <AssociationSet Name="FK_Список_Дисциплина" Association="Self.FK_Список_Дисциплина">
             <End Role="Дисциплина" EntitySet="Дисциплина" />
             <End Role="Список" EntitySet="Список" />
@@ -230,6 +226,10 @@
           <AssociationSet Name="FK_Студент_Группа" Association="Self.FK_Студент_Группа">
             <End Role="Группа" EntitySet="Группа" />
             <End Role="Студент" EntitySet="Студент" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Табель_Занятие" Association="Self.FK_Табель_Занятие">
+            <End Role="Занятие" EntitySet="Занятие" />
+            <End Role="Табель" EntitySet="Табель" />
           </AssociationSet>
           <AssociationSet Name="FK_Табель_Студент" Association="Self.FK_Табель_Студент">
             <End Role="Студент" EntitySet="Студент" />
@@ -286,6 +286,7 @@
           <NavigationProperty Name="Дисциплина1" Relationship="Self.FK_Занятие_Дисциплина" FromRole="Занятие" ToRole="Дисциплина" />
           <NavigationProperty Name="Преподаватель1" Relationship="Self.FK_Занятие_Преподаватель" FromRole="Занятие" ToRole="Преподаватель" />
           <NavigationProperty Name="Табель1" Relationship="Self.FK_Занятие_Табель" FromRole="Занятие" ToRole="Табель" />
+          <NavigationProperty Name="Табель2" Relationship="JournalModel.FK_Табель_Занятие" FromRole="Занятие" ToRole="Табель" />
         </EntityType>
         <EntityType Name="Преподаватель">
           <Key>
@@ -332,8 +333,10 @@
           <Property Name="Студент" Type="Int32" />
           <Property Name="Оценка" Type="Int32" />
           <Property Name="Присуцтвие" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Занятие" Relationship="Self.FK_Занятие_Табель" FromRole="Табель" ToRole="Занятие" />
+          <NavigationProperty Name="Занятие12" Relationship="Self.FK_Занятие_Табель" FromRole="Табель" ToRole="Занятие" />
           <NavigationProperty Name="Студент1" Relationship="Self.FK_Табель_Студент" FromRole="Табель" ToRole="Студент" />
+          <Property Name="Занятие" Type="Int32" />
+          <NavigationProperty Name="Занятие11" Relationship="JournalModel.FK_Табель_Занятие" FromRole="Табель" ToRole="Занятие" />
         </EntityType>
         <Association Name="FK_Группа_Преподаватель">
           <End Role="Преподаватель" Type="Self.Преподаватель" Multiplicity="0..1" />
@@ -488,7 +491,23 @@
             <End Role="Студент" EntitySet="Студент" />
             <End Role="Табель" EntitySet="Табель" />
           </AssociationSet>
+          <AssociationSet Name="FK_Табель_Занятие" Association="JournalModel.FK_Табель_Занятие">
+            <End Role="Занятие" EntitySet="Занятие" />
+            <End Role="Табель" EntitySet="Табель" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Табель_Занятие">
+          <End Type="JournalModel.Занятие" Role="Занятие" Multiplicity="0..1" />
+          <End Type="JournalModel.Табель" Role="Табель" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Занятие">
+              <PropertyRef Name="Код_Занятия" />
+            </Principal>
+            <Dependent Role="Табель">
+              <PropertyRef Name="Занятие" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -533,7 +552,6 @@
                 <ScalarProperty Name="Группа" ColumnName="Группа" />
                 <ScalarProperty Name="Преподаватель" ColumnName="Преподаватель" />
                 <ScalarProperty Name="Дисциплина" ColumnName="Дисциплина" />
-                <ScalarProperty Name="Табель" ColumnName="Табель" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -573,6 +591,7 @@
           <EntitySetMapping Name="Табель">
             <EntityTypeMapping TypeName="JournalModel.Табель">
               <MappingFragment StoreEntitySet="Табель">
+                <ScalarProperty Name="Занятие" ColumnName="Занятие" />
                 <ScalarProperty Name="Код_табеля" ColumnName="Код_табеля" />
                 <ScalarProperty Name="Студент" ColumnName="Студент" />
                 <ScalarProperty Name="Оценка" ColumnName="Оценка" />

@@ -37,6 +37,18 @@ namespace Journal
 
         private void groups_Click(object sender, RoutedEventArgs e)
         {
+            Group grp = new Group();
+            fr.Navigate(grp);
+        }
+
+        private void teachers_Click(object sender, RoutedEventArgs e)
+        {
+            ListOfTchr l = new ListOfTchr();
+            fr.Navigate(l);
+        }
+
+        private void lessons_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

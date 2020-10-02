@@ -23,7 +23,7 @@
         </DockPanel>
         <DockPanel Grid.Row="3">
             <TextBlock Text="Пароль" Width="150" Grid.Row="2" FontSize="30"/>
-            <TextBox x:Name="pass" Grid.Row="2" FontSize="30"/>
+            <PasswordBox x:Name="pass" Grid.Row="2" FontSize="30" />
         </DockPanel>
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>

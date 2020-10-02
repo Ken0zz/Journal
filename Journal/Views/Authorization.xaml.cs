@@ -34,16 +34,17 @@ namespace Journal.Views
             bool bl = false;
             for (int i = 0; i < db.Преподаватель.Count(); i++)
             {
-                if ((db.Преподаватель.ToList()[i].Логин == login.Text) && (db.Преподаватель.ToList()[i].Пароль == pass.Text))
+                if ((db.Преподаватель.ToList()[i].Логин == login.Text) && (db.Преподаватель.ToList()[i].Пароль == pass.Password))
                 {
                     bl = true;
                     nametchr = db.Преподаватель.ToList()[i].Имя + db.Преподаватель.ToList()[i].Отчество;
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
-                }
-                
+                }              
             }
-            if(!bl) MessageBox.Show("Неверный логин или пароль");
+            if (!bl) MessageBox.Show("Неверный логин или пароль");
+            else this.Close();
+                    
 
         }
 

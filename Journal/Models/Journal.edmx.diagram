@@ -22,6 +22,7 @@
         <AssociationConnector Association="JournalModel.FK_Занятие_Табель" ManuallyRouted="false" />
         <AssociationConnector Association="JournalModel.FK_Список_Преподаватель" ManuallyRouted="false" />
         <AssociationConnector Association="JournalModel.FK_Табель_Студент" ManuallyRouted="false" />
+        <AssociationConnector Association="JournalModel.FK_Табель_Занятие" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
