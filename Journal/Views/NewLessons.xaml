@@ -1,0 +1,74 @@
+﻿<Window x:Class="Journal.Views.NewLessons"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Journal.Views"
+        mc:Ignorable="d"
+        Title="NewLessons" Height="477.424" Width="463.435">
+    <Grid Background="#FFB8B8B8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="7" Background="#FFB8B8B8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Add" Content="Добавить" FontSize="20" Height="30" Width="100" Click="Add_Click"   />
+            <Button Grid.Column="1"  Content="Закрыть" FontSize="20" Height="30" Width="100" Click="Button_Click"   />
+        </Grid>
+        <DockPanel Background="#FF594F4F">
+            <TextBlock Text="Новая группы" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"/>
+        </DockPanel>
+        <DockPanel Grid.Row="1" Background="#FFB8B8B8">
+            <TextBlock  Text="Дата" Width="150" FontSize="25"/>
+            <DatePicker Name="LesDP" FontSize="25"/>
+        </DockPanel>
+        
+        <DockPanel Grid.Row="2">
+            <TextBlock  Text="Тема" Width="150" FontSize="25"/>
+            <TextBox x:Name="theme"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="3">
+            <TextBlock TextWrapping="Wrap" Text="Домашняя работа" Width="150" FontSize="25"/>
+            <TextBox TextWrapping="Wrap" x:Name="homewrk"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="4">
+            <TextBlock  Text="Группа" Width="150" FontSize="25"/>
+            <ComboBox x:Name="GrpCB"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="5" Background="#FFB8B8B8">
+            <TextBlock Grid.Row="1" Text="Куратор" Width="150" FontSize="25"/>
+            <ComboBox   x:Name="thcr"  Grid.Row="1" Background="#FFB8B8B8"  >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                <Run Text="{Binding Фамилия}"/>
+                <Run Text=" "/>
+                <Run Text="{Binding Имя}"/>
+                <Run Text=" "/>
+                <Run Text="{Binding Отчество}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </DockPanel>
+        <DockPanel Grid.Row="6">
+            <TextBlock  Text="Дисциплина" Width="150" FontSize="25"/>
+            <ComboBox x:Name="DiscCB"/>
+        </DockPanel>
+
+    </Grid>
+</Window>

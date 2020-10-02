@@ -13,15 +13,16 @@
             <RowDefinition/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Button x:Name="NewGrp" Content="Добавить" FontSize="50" Grid.Row="1" />
-        <DataGrid x:Name="GrpDG" AutoGenerateColumns="False" ColumnWidth="*" Background="#FFB8B8B8">
-            <DataGrid.Columns >
-                <DataGridTextColumn Header="Код занятия" Binding="{Binding Код_занятия}" />
+        <Button x:Name="NewGrp" Content="Добавить" FontSize="50" Grid.Row="1" Click="NewGrp_Click" />
+        <DataGrid x:Name="LesDG" AutoGenerateColumns="False"  Background="#FFB8B8B8">
+            <DataGrid.Columns  >
+                <DataGridTextColumn Header="Код занятия" Binding="{Binding Код_Занятия}"  />
                 <DataGridTextColumn Header="Дата" Binding="{Binding Дата}" />
                 <DataGridTextColumn Header="Тема" Binding="{Binding Тема}" />
                 <DataGridTextColumn Header="Домашнее задание" Binding="{Binding Домашнее_задание}" />
                 <DataGridTextColumn Header="Группа" Binding="{Binding Группа}" />
-                <DataGridTextColumn Header="Домашнее задание" Binding="{Binding Преподаватель}" />
+                <DataGridTextColumn Header="Преподаватель" Binding="{Binding Преподаватель}" />
+                <DataGridTextColumn Header="Дисциплина" Binding="{Binding Дисциплина}" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>

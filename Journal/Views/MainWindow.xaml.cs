@@ -49,7 +49,8 @@ namespace Journal
 
         private void lessons_Click(object sender, RoutedEventArgs e)
         {
-
+            Lessons les = new Lessons();
+            fr.Navigate(les);
         }
     }
 }

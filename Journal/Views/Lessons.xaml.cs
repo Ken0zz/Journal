@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Journal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace Journal.Views
     /// </summary>
     public partial class Lessons : Page
     {
+        Journal1Entities db = new Journal1Entities();
+        public static DataGrid LesDG1 = new DataGrid();
         public Lessons()
         {
             InitializeComponent();
+            Load();
+        }
+
+        private void Load()
+        {
+            LesDG.ItemsSource = db.Занятие.ToList();
+            LesDG1 = LesDG;
+        }
+
+        private void NewGrp_Click(object sender, RoutedEventArgs e)
+        {
+            NewLessons nl = new NewLessons();
+            nl.Show();
         }
     }
 }

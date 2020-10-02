@@ -124,6 +124,9 @@
     <Compile Include="Views\NewGroup.xaml.cs">
       <DependentUpon>NewGroup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewLessons.xaml.cs">
+      <DependentUpon>NewLessons.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewList.xaml.cs">
       <DependentUpon>NewList.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewLessons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
