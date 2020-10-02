@@ -14,21 +14,13 @@ namespace Journal.Models
     
     public partial class Табель
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Табель()
-        {
-            this.Занятие12 = new HashSet<Занятие>();
-        }
-    
         public int Код_табеля { get; set; }
         public Nullable<int> Студент { get; set; }
         public Nullable<int> Оценка { get; set; }
         public string Присуцтвие { get; set; }
         public Nullable<int> Занятие { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Занятие> Занятие12 { get; set; }
+        public virtual Занятие Занятие1 { get; set; }
         public virtual Студент Студент1 { get; set; }
-        public virtual Занятие Занятие11 { get; set; }
     }
 }

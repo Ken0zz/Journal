@@ -64,6 +64,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\JournalModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JournalModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JournalModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JournalModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JournalModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Группа.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Дисциплина.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Занятие.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Преподаватель.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Список.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Студент.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Табель.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
@@ -141,45 +180,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Journal.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Journal.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Journal.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Journal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Journal.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Группа.cs">
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Дисциплина.cs">
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Занятие.cs">
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Преподаватель.cs">
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Список.cs">
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Студент.cs">
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Табель.cs">
-      <DependentUpon>Journal.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -197,12 +197,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Journal.edmx">
+    <EntityDeploy Include="Models\JournalModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Journal.Designer.cs</LastGenOutput>
+      <LastGenOutput>JournalModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Journal.edmx.diagram">
-      <DependentUpon>Journal.edmx</DependentUpon>
+    <None Include="Models\JournalModel.edmx.diagram">
+      <DependentUpon>JournalModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -213,17 +213,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\Journal.Context.tt">
+    <Content Include="Models\JournalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Journal.Context.cs</LastGenOutput>
-      <DependentUpon>Journal.edmx</DependentUpon>
+      <DependentUpon>JournalModel.edmx</DependentUpon>
+      <LastGenOutput>JournalModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Journal.tt">
+    <Content Include="Models\JournalModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Journal.edmx</DependentUpon>
-      <LastGenOutput>Journal.cs</LastGenOutput>
+      <DependentUpon>JournalModel.edmx</DependentUpon>
+      <LastGenOutput>JournalModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

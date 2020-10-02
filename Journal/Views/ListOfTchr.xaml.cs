@@ -21,7 +21,7 @@ namespace Journal.Views
     /// </summary>
     public partial class ListOfTchr : Page
     {
-        JournalEntities db = new JournalEntities();
+        Journal1Entities db = new Journal1Entities();
         public static DataGrid dgl = new DataGrid();
         public ListOfTchr()
         {

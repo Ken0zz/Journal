@@ -22,7 +22,7 @@ namespace Journal.Views
     public partial class Authorization : Window
     {
         public static string nametchr;
-        JournalEntities db = new JournalEntities();
+        Journal1Entities db = new Journal1Entities();
         
         public Authorization()
         {

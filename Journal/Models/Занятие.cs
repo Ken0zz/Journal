@@ -17,7 +17,7 @@ namespace Journal.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Занятие()
         {
-            this.Табель2 = new HashSet<Табель>();
+            this.Табель = new HashSet<Табель>();
         }
     
         public int Код_Занятия { get; set; }
@@ -27,13 +27,11 @@ namespace Journal.Models
         public Nullable<int> Группа { get; set; }
         public Nullable<int> Преподаватель { get; set; }
         public Nullable<int> Дисциплина { get; set; }
-        public Nullable<int> Табель { get; set; }
     
         public virtual Группа Группа1 { get; set; }
         public virtual Дисциплина Дисциплина1 { get; set; }
         public virtual Преподаватель Преподаватель1 { get; set; }
-        public virtual Табель Табель1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Табель> Табель2 { get; set; }
+        public virtual ICollection<Табель> Табель { get; set; }
     }
 }

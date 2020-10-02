@@ -20,7 +20,7 @@ namespace Journal.Views
     /// </summary>
     public partial class NewList : Window
     {
-        JournalEntities db = new JournalEntities();
+        Journal1Entities db = new Journal1Entities();
         public NewList()
         {
             InitializeComponent();

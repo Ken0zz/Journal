@@ -13,10 +13,10 @@ namespace Journal.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class JournalEntities : DbContext
+    public partial class Journal1Entities : DbContext
     {
-        public JournalEntities()
-            : base("name=JournalEntities")
+        public Journal1Entities()
+            : base("name=Journal1Entities")
         {
         }
     

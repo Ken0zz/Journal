@@ -21,7 +21,7 @@ namespace Journal.Views
     /// </summary>
     public partial class Group : Page
     {
-        JournalEntities db = new JournalEntities();
+        Journal1Entities db = new Journal1Entities();
         public Group()
         {
             InitializeComponent();

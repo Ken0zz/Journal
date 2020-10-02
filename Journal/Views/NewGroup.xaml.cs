@@ -18,7 +18,7 @@ namespace Journal.Views
     
     public partial class NewGroup : Window
     {
-        JournalEntities db = new JournalEntities();
+        Journal1Entities db = new Journal1Entities();
         public NewGroup()
         {
             InitializeComponent();
