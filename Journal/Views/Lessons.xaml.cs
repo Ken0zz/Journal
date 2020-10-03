@@ -40,5 +40,14 @@ namespace Journal.Views
             NewLessons nl = new NewLessons();
             nl.Show();
         }
+
+        private void delbtn_Click(object sender, RoutedEventArgs e)
+        {
+            int Id = (LesDG.SelectedItem as Занятие).Код_Занятия;
+            var deleteles = db.Занятие.Where(m => m.Код_Занятия == Id).Single();
+            db.Занятие.Remove(deleteles);
+            db.SaveChanges();
+            LesDG.ItemsSource = db.Дисциплина.ToList();
+        }
     }
 }

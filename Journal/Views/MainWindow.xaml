@@ -27,12 +27,12 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="1" Background="#FF594F4F">
                 <Button x:Name="groups" Content="Группы" FontSize="20" Click="groups_Click"/>
-                <Button x:Name="students" Content="Студенты"  FontSize="20"/>
+                <Button x:Name="students" Content="Студенты"  FontSize="20" Click="students_Click"/>
                 <Button x:Name="teachers" Content="Преподаватели и дисциплины"  FontSize="20" Click="teachers_Click"  />
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="1" Background="#FF594F4F">
                 <Button x:Name="lessons"  Content="Занятия" FontSize="20" Click="lessons_Click"/>
-                <Button x:Name="timesheet"   Content="Табель"  FontSize="20"/>
+                <Button x:Name="timesheet"   Content="Табель"  FontSize="20" Click="timesheet_Click"/>
                 <Button x:Name= "disciplines"   Content="Дисциплины"  FontSize="20" Click="disciplines_Click"/>
             </StackPanel>
         </Grid>

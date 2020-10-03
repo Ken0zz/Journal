@@ -23,7 +23,7 @@
             <Button Grid.Column="1"  Content="Закрыть" FontSize="20" Height="30" Width="100" Click="Button_Click"   />
         </Grid>
         <DockPanel Background="#FF594F4F">
-            <TextBlock Text="Новая группы" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Новая группа" FontSize="30" TextAlignment="Center" VerticalAlignment="Center"/>
         </DockPanel>
         <DockPanel Grid.Row="1" Background="#FFB8B8B8">
             <TextBlock Grid.Row="1" Text="Название" Width="150" FontSize="25"/>

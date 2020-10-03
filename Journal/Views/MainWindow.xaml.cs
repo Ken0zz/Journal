@@ -52,5 +52,16 @@ namespace Journal
             Lessons les = new Lessons();
             fr.Navigate(les);
         }
+
+        private void students_Click(object sender, RoutedEventArgs e)
+        {
+            Students st = new Students();
+            fr.Navigate(st);
+        }
+
+        private void timesheet_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -130,8 +130,17 @@
     <Compile Include="Views\NewList.xaml.cs">
       <DependentUpon>NewList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewStudent.xaml.cs">
+      <DependentUpon>NewStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Students.xaml.cs">
+      <DependentUpon>Students.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tabel.xaml.cs">
+      <DependentUpon>Tabel.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Authorization.xaml">
       <SubType>Designer</SubType>
@@ -181,7 +190,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NewStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Students.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tabel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
