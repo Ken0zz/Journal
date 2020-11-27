@@ -14,8 +14,8 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Button x:Name="NewStd" Content="Добавить" FontSize="50" Grid.Row="1" Click="NewStd_Click"   />
-        <DataGrid x:Name="StdDG" AutoGenerateColumns="False" ColumnWidth="*" Background="#FFB8B8B8">
-            <DataGrid.Columns >
+        <DataGrid  x:Name="StdDG" AutoGenerateColumns="False" ColumnWidth="*" Background="#FFB8B8B8">
+            <DataGrid.Columns>
                 <DataGridTextColumn Header="Код студента" Binding="{Binding Код_студента}" />
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding  Фамилия}" />
                 <DataGridTextColumn Header="Имя" Binding="{Binding  Имя}" />
@@ -32,6 +32,7 @@
                         <DataTemplate>
                             <StackPanel>
                                 <Button x:Name="delbtn" Content="Удалить" Click="delbtn_Click"   />
+                                <Button x:Name="updbtn" Content="Изменить" Click="updbtn_Click"    />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -33,5 +33,6 @@ namespace Journal.Models
         public virtual DbSet<Список> Список { get; set; }
         public virtual DbSet<Студент> Студент { get; set; }
         public virtual DbSet<Табель> Табель { get; set; }
+        public virtual DbSet<Группа_препод> Группа_препод { get; set; }
     }
 }

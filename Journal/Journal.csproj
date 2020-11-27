@@ -85,6 +85,9 @@
     <Compile Include="Models\Группа.cs">
       <DependentUpon>JournalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Группа_препод.cs">
+      <DependentUpon>JournalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Дисциплина.cs">
       <DependentUpon>JournalModel.tt</DependentUpon>
     </Compile>

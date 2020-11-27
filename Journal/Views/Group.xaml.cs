@@ -30,7 +30,7 @@ namespace Journal.Views
 
         private void Load()
         {
-            GrpDG.ItemsSource = db.Группа.ToList();
+            GrpDG.ItemsSource = db.Группа_препод.ToList();
         }
 
         private void NewGrp_Click(object sender, RoutedEventArgs e)
@@ -45,6 +45,11 @@ namespace Journal.Views
             db.Группа.Remove(db.Группа.Where(m => m.Код_группы == id).Single());
             db.SaveChanges();
             GrpDG.ItemsSource = db.Группа.ToList();
+        }
+
+        private void tb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
         }
     }
 }

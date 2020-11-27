@@ -10,15 +10,16 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Button x:Name="NewGrp" Content="Добавить" FontSize="50" Grid.Row="1" Click="NewGrp_Click"  />
-        <DataGrid x:Name="GrpDG" AutoGenerateColumns="False" ColumnWidth="*" Background="#FFB8B8B8">
+        <Button x:Name="NewGrp" Content="Добавить" FontSize="50" Grid.Row="2" Click="NewGrp_Click"  />
+        <DataGrid x:Name="GrpDG" AutoGenerateColumns="False" ColumnWidth="*" Grid.Row="1" Background="#FFB8B8B8">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Код группы" Binding="{Binding Код_группы}" />
                 <DataGridTextColumn Header="Название" Binding="{Binding  Наименование}" />
-                <DataGridTextColumn Header="Куратор" Binding="{Binding  Куратор}" />
+                <DataGridTextColumn Header="Куратор" Binding="{Binding  Фамилия}" />
 
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate>
@@ -36,5 +37,10 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Grid.Row="0">
+            <TextBox x:Name="tb" TextChanged="tb_TextChanged" />
+
+
+        </StackPanel>
     </Grid>
 </Page>

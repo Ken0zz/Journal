@@ -37,7 +37,7 @@ namespace Journal.Views
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            Список sp = new Список() 
+            Список sp = new Список()  
             {
                 Преподаватель = Convert.ToInt32(thcr.SelectedValue),
                 Дисциплина = Convert.ToInt32(disc.SelectedValue)

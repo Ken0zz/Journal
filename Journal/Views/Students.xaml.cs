@@ -21,6 +21,7 @@ namespace Journal.Views
     /// </summary>
     public partial class Students : Page
     {
+        public static int updid = -1;
         Journal1Entities db = new Journal1Entities();
         public static DataGrid StdDG1;
         public Students()
@@ -37,15 +38,32 @@ namespace Journal.Views
 
         private void delbtn_Click(object sender, RoutedEventArgs e)
         {
-            int Id = (StdDG.SelectedItem as Студент).Код_студента;
-            var deleteStud = db.Студент.Where(m => m.Код_студента == Id).Single();
-            db.Студент.Remove(deleteStud);
-            db.SaveChanges();
-            StdDG.ItemsSource = db.Студент.ToList();
+             
+            if ((StdDG.SelectedItem as Студент) != null)
+            {
+                int Id = (StdDG.SelectedItem as Студент).Код_студента;
+                var deleteStud = db.Студент.Where(m => m.Код_студента == Id).Single();
+                db.Студент.Remove(deleteStud);
+                db.SaveChanges();
+                StdDG.ItemsSource = db.Студент.ToList();
+            }
+            else
+            {
+                MessageBox.Show("ОшибОчка");
+            }
+            
         }
 
         private void NewStd_Click(object sender, RoutedEventArgs e)
         {
+            db.Студент.ToList()[0].Имя = "Илья";
+            NewStudent st = new NewStudent();
+            st.Show();
+        }
+
+        private void updbtn_Click(object sender, RoutedEventArgs e)
+        {
+            updid = (StdDG.SelectedItem as Студент).Код_студента;
             NewStudent st = new NewStudent();
             st.Show();
         }

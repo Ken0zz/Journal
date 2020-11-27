@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище JournalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище JournalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -81,6 +81,19 @@
           <Property Name="Оценка" Type="int" />
           <Property Name="Присуцтвие" Type="char" MaxLength="3" />
           <Property Name="Занятие" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Журнал.dbo.Группа-препод" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Группа-препод">
+          <Key>
+            <PropertyRef Name="Код_группы" />
+          </Key>
+          <Property Name="Код_группы" Type="int" Nullable="false" />
+          <Property Name="Наименование" Type="char" MaxLength="10" />
+          <Property Name="Куратор" Type="int" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="50" />
+          <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Группа_Преподаватель">
           <End Role="Преподаватель" Type="Self.Преподаватель" Multiplicity="0..1" />
@@ -199,6 +212,16 @@
           <EntitySet Name="Список" EntityType="Self.Список" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Студент" EntityType="Self.Студент" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Табель" EntityType="Self.Табель" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Группа-препод" EntityType="Self.Группа-препод" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Группа-препод].[Код_группы] AS [Код_группы], 
+    [Группа-препод].[Наименование] AS [Наименование], 
+    [Группа-препод].[Куратор] AS [Куратор], 
+    [Группа-препод].[Фамилия] AS [Фамилия], 
+    [Группа-препод].[Имя] AS [Имя], 
+    [Группа-препод].[Отчество] AS [Отчество]
+    FROM [dbo].[Группа-препод] AS [Группа-препод]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Группа_Преподаватель" Association="Self.FK_Группа_Преподаватель">
             <End Role="Преподаватель" EntitySet="Преподаватель" />
             <End Role="Группа" EntitySet="Группа" />
@@ -236,8 +259,7 @@
             <End Role="Табель" EntitySet="Табель" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JournalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -489,7 +511,19 @@
             <End Role="Студент" EntitySet="Студент" />
             <End Role="Табель" EntitySet="Табель" />
           </AssociationSet>
+          <EntitySet Name="Группа_препод" EntityType="JournalModel.Группа_препод" />
         </EntityContainer>
+        <EntityType Name="Группа_препод">
+          <Key>
+            <PropertyRef Name="Код_группы" />
+          </Key>
+          <Property Name="Код_группы" Type="Int32" Nullable="false" />
+          <Property Name="Наименование" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Куратор" Type="Int32" />
+          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -578,6 +612,18 @@
                 <ScalarProperty Name="Оценка" ColumnName="Оценка" />
                 <ScalarProperty Name="Присуцтвие" ColumnName="Присуцтвие" />
                 <ScalarProperty Name="Занятие" ColumnName="Занятие" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Группа_препод">
+            <EntityTypeMapping TypeName="JournalModel.Группа_препод">
+              <MappingFragment StoreEntitySet="Группа-препод">
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Куратор" ColumnName="Куратор" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Код_группы" ColumnName="Код_группы" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
